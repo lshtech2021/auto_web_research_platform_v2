@@ -1,0 +1,13 @@
+# Opportunity artifacts (regenerable / private)
+projects/*
+!projects/.gitkeep
+
+# Local env / secrets
+.env
+.env.*
+*.pem
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
