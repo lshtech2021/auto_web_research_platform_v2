@@ -23,4 +23,6 @@
 
 ## Pass criteria
 
-Both fixtures pass their checklists. Paid path optional: one extra run with `use_paid: true` if keys configured; verify paid fields non-null for at least one item **or** explicit skipped-enrichment note.
+**v1 merge bar:** Fixture A must pass `checklist-research.md` and `checklist-plan-seo.md` (minimum to merge). Fixture B is recommended before relying on the SaaS planning path in production workflows. **Full runbook pass:** both Fixture A and Fixture B pass their checklists end-to-end.
+
+Paid path optional: one extra run with `use_paid: true` if keys configured; verify paid fields non-null for at least one item **or** explicit skipped-enrichment note.

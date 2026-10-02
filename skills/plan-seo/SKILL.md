@@ -13,6 +13,7 @@ description: >
 - `projects/<slug>/01-research-pack.md` exists
 - User approved shortlist (human checkpoint)
 - Mode is `seo`, or user explicitly asked for SEO planning on a hybrid pack
+- `meta.mode` is not `unknown` (if it is, stop and ask the user to confirm mode or re-run research classify before planning)
 
 ## Inputs
 
@@ -22,11 +23,12 @@ description: >
 ## Steps
 
 1. Read `meta.json` and `01-research-pack.md`.
-2. If `meta.mode` is `saas` and user did not override, stop and ask whether to use `plan-saas` instead.
-3. Set `meta.mode` to `seo` if user confirmed SEO plan.
-4. Copy `templates/strategy-seo.md` → `projects/<slug>/02-strategy.md` and fill all sections from the research pack. No code. No invented traffic numbers — use `n/a` and qualitative language when metrics missing.
-5. Copy `templates/ops-monetization-seo.md` → `projects/<slug>/03-ops-monetization.md` and fill all sections. Include primary revenue model (e.g. affiliate, ads, lead-gen, digital product), 2–3 channels, weekly ops loop, 30/60/90, first metric.
-6. **Stop for human checkpoint.** Do not start implementation/build.
+2. If `meta.mode` is `unknown`, stop and ask the user to confirm mode (or re-run research classify) before planning.
+3. If `meta.mode` is `saas` and user did not override, stop and ask whether to use `plan-saas` instead.
+4. Set `meta.mode` to `seo` if user confirmed SEO plan.
+5. Copy `templates/strategy-seo.md` → `projects/<slug>/02-strategy.md` and fill all sections from the research pack. No code. No invented traffic numbers — use `n/a` and qualitative language when metrics missing.
+6. Copy `templates/ops-monetization-seo.md` → `projects/<slug>/03-ops-monetization.md` and fill all sections. Include primary revenue model (e.g. affiliate, ads, lead-gen, digital product), 2–3 channels, weekly ops loop, 30/60/90, first metric.
+7. **Stop for human checkpoint.** Do not start implementation/build.
 
 ## Done when
 

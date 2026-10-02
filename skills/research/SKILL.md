@@ -23,7 +23,7 @@ User provides a seed niche, keyword, or product hunch and wants a ranked researc
 ## Steps
 
 1. **Bootstrap** `projects/<slug>/` and `data/`.
-2. Write `meta.json`:
+2. Write `meta.json`. Write `use_paid` exactly as the user/input provided (boolean). Copy the boolean from `inputs.use_paid` into `meta.json` and `keywords.json` (never hardcode).
 
 ```json
 {
@@ -36,6 +36,8 @@ User provides a seed niche, keyword, or product hunch and wants a ranked researc
 }
 ```
 
+(Example shows `false`; substitute the invocation’s `use_paid` value.)
+
 3. **Free MCP first.** Prefer Keywords-MCP tools when available:
    - suggestions / autocomplete
    - trends
@@ -45,9 +47,9 @@ User provides a seed niche, keyword, or product hunch and wants a ranked researc
 4. If `use_paid` is true, enrich **top candidates only** via DataForSEO-backed MCP (OpenSEO / UpgradeSEO). On failure: continue free-only; record skipped enrichment in the pack.
 5. If MCP is unavailable entirely: continue with seed + reasoning; set overall confidence `low`; list missing sources.
 6. Score and rank using `skills/research/scoring.md`.
-7. **Classify** suggested mode (`seo` | `saas` | `hybrid`). If ambiguous, set `hybrid` and `needs_confirm: true`. Update `meta.json` `mode` field to the suggestion (user may override later).
+7. **Classify** suggested mode (`seo` | `saas` | `hybrid`). If ambiguous, set `hybrid` and record `needs_confirm: true` in `01-research-pack.md` under **Recommended mode** (template field), not in `meta.json`. Update `meta.json` `mode` field to the suggestion (user may override later).
 8. Copy `templates/research-pack.md` → `projects/<slug>/01-research-pack.md` and fill every section. Replace placeholders; use `n/a` for missing metrics.
-9. Write `projects/<slug>/data/keywords.json` with this shape (paid fields `null` when absent):
+9. Write `projects/<slug>/data/keywords.json` with this shape (paid fields `null` when absent). Set top-level `use_paid` from the invocation input (same boolean as `meta.json`; do not hardcode).
 
 ```json
 {

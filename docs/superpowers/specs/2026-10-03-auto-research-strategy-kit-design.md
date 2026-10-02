@@ -1,7 +1,7 @@
 # Auto Research & Strategy Kit — Design Spec
 
 **Date:** 2026-10-03  
-**Status:** Approved
+**Status:** Approved  
 **Repo:** `auto_web_research_platform_v2`
 
 ## Problem
